@@ -6,8 +6,8 @@ class CreateUsers < ActiveRecord::Migration[5.1]
       t.string :email
       t.string :password
       t.boolean :block
-      t.datetime :registerDate
-      t.datetime :lastVisitDate
+      t.datetime :register_date
+      t.datetime :last_visit_date
 
       t.timestamps
     end

@@ -10,53 +10,6 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180205063256) do
-
-  create_table "answers", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title", null: false
-    t.boolean "correct", default: false
-    t.integer "question_id", null: false
-    t.boolean "published", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "categories", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title", null: false
-    t.text "description", null: false
-    t.boolean "published", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "questions", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title", null: false
-    t.text "body", null: false
-    t.integer "test_id", null: false
-    t.boolean "published", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "tests", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "title", null: false
-    t.integer "level", null: false
-    t.integer "category_id", null: false
-    t.boolean "published", default: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8" do |t|
-    t.string "name"
-    t.string "username", null: false
-    t.string "email", null: false
-    t.string "password", null: false
-    t.boolean "block", default: false
-    t.datetime "registerDate"
-    t.datetime "lastVisitDate"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+ActiveRecord::Schema.define(version: 0) do
 
 end
