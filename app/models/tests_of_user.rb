@@ -1,0 +1,2 @@
+class TestsOfUser < ApplicationRecord
+end
