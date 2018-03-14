@@ -3,7 +3,7 @@ class CreateCategories < ActiveRecord::Migration[5.1]
     create_table :categories do |t|
       t.string :title
       t.text :description
-      t.boolean :published
+      t.boolean :published, default: 0
       t.timestamps
     end
   end
