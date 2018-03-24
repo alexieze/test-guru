@@ -7,7 +7,7 @@ class User < ApplicationRecord
 
   validates :name, presence: true
   validates :username, presence: true, uniqueness: true
-  validates :password, presence: true, with: /^[A-Za-z0-9]+$/
+  validates :password, presence: true, format: { with: /^[A-Za-z0-9]+$/ }
   validates :email, presence: true, uniqueness: true, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }
 
 end
