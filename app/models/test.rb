@@ -5,7 +5,14 @@ class Test < ApplicationRecord
   has_and_belongs_to_many :users, join_table: "tests_of_users"
   belongs_to :author, class_name: 'User', foreign_key: 'user_id'
 
-  def Test.name_of_tests(category)
-    Test.joins('LEFT JOIN categories ON categories.id=tests.category_id').where("categories.title LIKE ?", "%#{category}%")
-  end
+  scope :level, -> (level) { where(level: level) }
+
+  scope :slow, -> { level(0..1) }
+  scope :medium, -> { level(2..3) }
+  scope :hard, -> { level(5..Float::INFINITY) }
+
+  scope :name_of_tests, -> ( category_title ) { joins(:categories).where("categories.title LIKE ?", "%#{ category_title }%") }
+
+  validates :title, presence: true, uniqueness: { scope: :level, message: "Title and level must be unique"}
+  validates :level, presence: true, numericality: { only_integer: true }
 end
