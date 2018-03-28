@@ -3,7 +3,7 @@ class Answer < ApplicationRecord
   belongs_to :question
   scope :correct, -> { where(correct: true) }
 
-  validates :count_replies, on: :create
+  #validates :count_replies, on: :create
 
   private
 

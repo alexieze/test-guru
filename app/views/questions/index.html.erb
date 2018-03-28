@@ -1,0 +1,4 @@
+<h1>Список вопросов для теста - <%= @test.title %></h1>
+<% @questions.each do |question| %>
+  <div><%= link_to question.title, [:edit, @test , question ] %></div>
+<% end %>

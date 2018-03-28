@@ -1,0 +1,12 @@
+<h1>Новый вопрос</h1>
+
+<%= form_for @question, url: { action: "create" } do |t| %>
+  <%= t.label :title, 'Вопрос' %><br/>
+  <%=	 t.text_field :title, size: 50 %><br/>
+  <%= t.label :body, 'Описание вопроса' %><br/>
+  <%=	 t.text_area :body, size: "60X12" %><br/>
+  <%= t.label :published, 'Опубликован' %><br/>
+  <%= t.check_box :published %>
+  <br/><br/>
+  <%= t.submit %>
+<% end %>
