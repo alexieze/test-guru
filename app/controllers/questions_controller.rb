@@ -1,12 +1,24 @@
 class QuestionsController < ApplicationController
-
   before_action :get_test
   before_action :get_question, only: [:edit, :update, :show]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_from_test_not_found
 
   def index
-    @questions = Question.where(:test_id => @test.id)
+    @questions = @test.questions.all
+  end
+
+  def new
+    @question = @test.questions.new
+  end
+
+  def create
+    @question = @test.questions.new(question_params)
+    if @question.save
+      redirect_to test_questions_url(@test)
+    else
+      render :new
+    end
   end
 
   def show
@@ -18,7 +30,7 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      redirect_to test_questions_url
+      redirect_to test_questions_url(@test)
     else
       render :edit
     end
@@ -26,7 +38,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question.destroy
-    redirect_to test_questions_url
+    redirect_to test_questions_url(@test)
   end
 
   private
