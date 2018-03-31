@@ -1,0 +1,16 @@
+<h1>Это главная страница!</h1>
+<div class="new-test"><%= link_to 'New test', new_test_path %></div>
+<table>
+  <% @tests.each do |test| %>
+    <tr>
+      <td><%= link_to test.title, edit_test_path(test) %></td>
+      <td>
+        <%= link_to 'Show',   test_path(test) %>
+        <%= link_to 'Edit',   edit_test_path(test) %>
+        <%= link_to 'Delete', test_path(test),
+                    method: :delete,
+                    data: { confirm: 'Are you sure?'} %>
+      </td>
+    </tr>
+  <% end %>
+</table>
