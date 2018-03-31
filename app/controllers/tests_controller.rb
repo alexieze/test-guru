@@ -1,8 +1,8 @@
 class TestsController < ApplicationController
 
   before_action :all
-  before_action :one, only: [:show, :edit, :update, :destroy]
-  before_action :get_params, only: [:create, :update]
+  before_action :find_test, only: [:show, :edit, :update, :destroy]
+  before_action :test_params, only: [:create, :update]
 
   def index; end
 
@@ -15,7 +15,7 @@ class TestsController < ApplicationController
   end
 
   def create
-    @test = Test.new(get_params)
+    @test = Test.new(test_params)
     @test.user_id = 1
     if @test.save
       redirect_to tests_path(@tests)
@@ -45,11 +45,11 @@ class TestsController < ApplicationController
     @tests = Test.all
   end
 
-  def one
+  def find_test
     @test = Test.find(params[:id])
   end
 
-  def get_params
+  def test_params
     params.require(:test).permit(:title, :level, :category_id, :published)
   end
 

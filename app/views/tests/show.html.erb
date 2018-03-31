@@ -6,4 +6,6 @@
 
 <h2>Вопросы теста</h2>
 <%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>
-<%= render 'questions/question' %>
+<table>
+  <%= render @test.questions %>
+</table>

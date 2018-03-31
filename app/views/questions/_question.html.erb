@@ -1,14 +1,10 @@
-<table>
-  <%	 @test.questions.each do |question| %>
-    <tr>
-      <td><%= link_to question.title, edit_test_question_path(@test) %></td>
-      <td>
-        <%= link_to 'Show',   test_question_path(@test) %>
-        <%= link_to 'Edit',   edit_test_question_path(@test) %>
-        <%= link_to 'Delete', test_question_path(@test),
-                    method: :delete,
-                    data: { confirm: 'Are you sure?'} %>
-      </td>
-    </tr>
-  <%	 end %>
-</table>
+<tr>
+  <td><%= link_to question.title, edit_test_question_path(@test) %></td>
+  <td>
+    <%= link_to 'Show',   test_question_path(@test) %>
+    <%= link_to 'Edit',   edit_test_question_path(@test) %>
+    <%= link_to 'Delete', test_question_path(@test),
+                method: :delete,
+                data: { confirm: 'Are you sure?'} %>
+  </td>
+</tr>

@@ -10,8 +10,6 @@
 
   <body>
     <%= yield %>
-    <footer style="margin-top: 200px;">
-      Учебный проект в онлайн-школе <%= link_to 'Thinknetica', 'http://thinknetika.com' %>. Kahasanov Albert &copy;<%= current_year %>
-    </footer>
+    <%= render 'elements/footer' %>
   </body>
 </html>

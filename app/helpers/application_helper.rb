@@ -5,6 +5,6 @@ module ApplicationHelper
   end
 
   def git_repo(author, repo)
-    link_to author, repo
+    link_to author, repo, target: '_blank'
   end
 end
