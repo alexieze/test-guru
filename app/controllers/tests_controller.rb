@@ -32,7 +32,7 @@ class TestsController < ApplicationController
   end
 
   def update
-    if @test.update(get_params)
+    if @test.update(test_params)
       redirect_to tests_path
     else
       render :edit
