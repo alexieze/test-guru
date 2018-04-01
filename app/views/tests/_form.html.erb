@@ -1,0 +1,19 @@
+<%= form_with model: @test, local: true do |form | %>
+  <p>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :level %>
+    <%= form.number_field :level %>
+  </p>
+  <p>
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.all, :id, :title, prompt: true %>
+  </p>
+  <p>
+    <%= form.label :published %>
+    <%= form.check_box :published %>
+  </p>
+  <p><%= form.submit %></p>
+<% end %>

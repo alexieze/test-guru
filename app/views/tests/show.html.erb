@@ -1,2 +1,11 @@
-<h1>Tests#show</h1>
-<p>Find me in app/views/tests/show.html.erb</p>
+<h1>Тест - <%= @test.title %></h1>
+<p><%= link_to 'Все тесты', tests_path %></p>
+<p>Уровень теста - <%= test_level(@test) %></p>
+<p>Категория теста - <%= @test.category.title %></p>
+<p>Опубликован ли тест - <%= test_published(@test) %></p>
+
+<h2>Вопросы теста</h2>
+<%= link_to 'Создать новый вопрос', new_test_question_path(@test) %>
+<table>
+  <%= render @test.questions %>
+</table>
