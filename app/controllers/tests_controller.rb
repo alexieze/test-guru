@@ -1,6 +1,6 @@
 class TestsController < ApplicationController
 
-  before_action :all
+  before_action :all, only: [:index]
   before_action :find_test, only: [:show, :edit, :update, :destroy]
   before_action :test_params, only: [:create, :update]
 
@@ -18,7 +18,7 @@ class TestsController < ApplicationController
     @test = Test.new(test_params)
     @test.user_id = 1
     if @test.save
-      redirect_to tests_path(@tests)
+      redirect_to tests_path
     else
       render :new
     end
@@ -28,7 +28,7 @@ class TestsController < ApplicationController
 
   def destroy
     @test.destroy
-    redirect_to tests_path(@tests)
+    redirect_to tests_path
   end
 
   def update

@@ -3,7 +3,7 @@ module TestsHelper
   TEST_LEVELS = { 0 => :easy, 1 => :elementary, 2 => :advanced, 3 => :hard }.freeze
 
   def test_published(test)
-    (test.published == 1)? 'Да' : 'Нет'
+    test.published? ? 'Да' : 'Нет'
   end
 
   def test_level(test)
